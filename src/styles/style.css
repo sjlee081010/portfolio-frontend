@@ -1,0 +1,26 @@
+@import './reset.css';
+@import './variables.css';
+@import './header.css';
+@import './pages/home.css';
+/* @import './pages/about.css';
+@import './pages/project.css';
+@import './pages/board.css';
+@import './pages/study.css'; */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 0 2.5vw 2.5vw 2.5vw;
+    display: flex;
+}
+
+#content {
+    flex: 1;
+    background-color: #f9f9f9;
+}

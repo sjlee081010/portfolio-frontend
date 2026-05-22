@@ -16,7 +16,7 @@ Projects — 프로젝트 카드 (이름, 설명, 사용 기술, 링크)
 Experience — 현장실습, 수상경력, 활동 이력
 Contact — 이메일, GitHub, 링크 등
 Board - 게시판
-TIL - 공부한 내용 기록
+Study - 공부한 내용 기록
 
 dark: #333
 light: #f9f9f9
