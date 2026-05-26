@@ -16,11 +16,17 @@ body {
 
 main {
     flex: 1;
-    padding: 0 2.5vw 2.5vw 2.5vw;
     display: flex;
+    justify-content: center;
 }
 
 #content {
-    flex: 1;
-    background-color: #f9f9f9;
+    width: 94vw;
+    height: calc(100% - 3vw);
+    display: flex;
 }
+
+#content > div:first-child {
+    flex: 1;
+}
+
