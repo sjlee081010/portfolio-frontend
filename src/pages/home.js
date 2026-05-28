@@ -1,14 +1,15 @@
 export function homePage() {
-  return `
+    return `
     <div class="home-page">
 
         <section>
             <div class="container">
                 <div class="content">
                     <h1>
-                        LEE SEONJAE <br>PORTFOLIO
+                        LEE SEONJAE PORTFOLIO
                     </h1>
-                    <p>Creative <b>Developer</b></p>
+                    <hr>
+                    <p>Creative <span class="flip-text-container"><b class="flip-text flip-in">Developer</b></span></p>
                     <a href="#project">Go project</a>
                 </div>
                 <div class="sidebar">
@@ -26,8 +27,35 @@ export function homePage() {
                     <a href="https://github.com/sjlee081010" class="contact-link">github.com/sjlee081010</a>
                 </p>
             </div>
-            <span>© 2026 Lee SeonJae All right reserved</span>
+            <span class="copyright">© 2026 Lee SeonJae All right reserved</span>
         </div>
     </div>
   `
+}
+
+export function initHomePage() {
+    const words = ['Developer', 'Tinker'];
+    let index = 0;
+    const container = document.querySelector('.flip-text-container');
+
+    function createTextEl(word, animClass) {
+        const el = document.createElement('b');
+        el.textContent = word;
+        el.classList.add('flip-text', animClass);
+        return el;
+    }
+
+    function changeWord() {
+        const current = container.querySelector('.flip-text');
+        index = (index + 1) % words.length;
+
+        const next = createTextEl(words[index], 'flip-in');
+        container.appendChild(next);
+        current.classList.remove('flip-in');
+        current.classList.add('flip-out');
+
+        setTimeout(() => current.remove(), 500);
+    }
+
+    setInterval(changeWord, 4000);
 }

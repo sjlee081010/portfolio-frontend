@@ -1,12 +1,17 @@
-.home-page {
-    display: flex;
-    flex-direction: column;
-}
-
-@keyframes fadeUp {
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
     }
 
     to {
@@ -15,45 +20,113 @@
     }
 }
 
+@keyframes textIn {
+    from {
+        transform: scaleY(-1);
+        opacity: 0;
+    }
+
+    to {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes textOut {
+    from {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    to {
+        transform: scaleY(-1);
+        opacity: 0;
+    }
+}
+
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
 .home-page {
 
     section {
         width: 100%;
         height: 100%;
+        padding-bottom: 5vh;
         flex: 1;
         display: flex;
         align-items: center;
     }
 
-    section > .container {
+    section>.container {
         width: 100%;
         display: flex;
         justify-content: space-between;
     }
 
-    .container > .content {
+    .container>.content {
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
-    .content > h1 {
+    .content>h1 {
+        color: #333;
         font-size: 52px;
-        font-weight: 800;
-        animation: fadeUp 0.7s ease forwards;
+        font-weight: 900;
+
+        animation: fadeIn 0.7s ease-in forwards;
         animation-delay: 0.1s;
         opacity: 0;
     }
 
-    .content > P {
-        font-size: 24px;
-        animation: fadeUp 0.7s ease forwards;
-        animation-delay: 0.3s;
+    .content>hr {
+        width: 100px;
+        border: 2px solid #333;
+        animation: fadeDown 0.3s ease forwards;
+        animation-delay: 0.5s;
         opacity: 0;
     }
 
-    .content > a {
+    .content>p {
+        color: #333;
+        width: fit-content;
+        position: relative;
+        font-size: 24px;
+        animation: fadeDown 0.3s ease forwards;
+        animation-delay: 0.7s;
+        opacity: 0;
+    }
+
+    .flip-text-container {
+        position: absolute;
+        left: calc(100% + 8px);
+        display: inline-block;
+    }
+
+    .flip-text {
+        top: 0;
+        left: 0;
+        position: absolute;
+        display: inline-block;
+        transform-origin: bottom;
+    }
+
+    .flip-in {
+        animation: textIn 0.5s forwards;
+    }
+
+    .flip-out {
+        animation: textOut 0.5s forwards;
+    }
+
+    .content>a {
         display: inline-block;
         width: fit-content;
         color: #fff;
@@ -64,8 +137,8 @@
         border: 2px solid #333;
         transition: 0.3s;
 
-        animation: fadeUp 0.7s ease forwards;
-        animation-delay: 0.5s;
+        animation: fadeDown 0.3s ease forwards;
+        animation-delay: 1s;
         opacity: 0;
 
         &:hover {
@@ -74,7 +147,8 @@
         }
     }
 
-    .sidebar > .sidebar-name {
+    .sidebar>.sidebar-name {
+        color: #333;
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         transform-origin: center;
@@ -88,16 +162,21 @@
     }
 
     .contact-box {
+        color: #333;
         display: flex;
         column-gap: 24px;
     }
 
-    .contact-box > p {
+    .contact-box>p {
         display: flex;
         column-gap: 12px;
     }
 
     .contact-box a:hover {
         text-decoration: underline;
+    }
+
+    .bottom-bar > .copyright {
+        color: #333;
     }
 }
