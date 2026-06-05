@@ -33,29 +33,8 @@ export function homePage() {
   `
 }
 
+import { initFlipText } from '../utils/flipText.js'
+
 export function initHomePage() {
-    const words = ['Developer', 'Tinker'];
-    let index = 0;
-    const container = document.querySelector('.flip-text-container');
-
-    function createTextEl(word, animClass) {
-        const el = document.createElement('b');
-        el.textContent = word;
-        el.classList.add('flip-text', animClass);
-        return el;
-    }
-
-    function changeWord() {
-        const current = container.querySelector('.flip-text');
-        index = (index + 1) % words.length;
-
-        const next = createTextEl(words[index], 'flip-in');
-        container.appendChild(next);
-        current.classList.remove('flip-in');
-        current.classList.add('flip-out');
-
-        setTimeout(() => current.remove(), 500);
-    }
-
-    setInterval(changeWord, 4000);
+  initFlipText('.flip-text-container', ['Developer', 'Tinker'])
 }

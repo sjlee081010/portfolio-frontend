@@ -1,48 +1,4 @@
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
 
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes textIn {
-    from {
-        transform: scaleY(-1);
-        opacity: 0;
-    }
-
-    to {
-        transform: scaleY(1);
-        opacity: 1;
-    }
-}
-
-@keyframes textOut {
-    from {
-        transform: scaleY(1);
-        opacity: 1;
-    }
-
-    to {
-        transform: scaleY(-1);
-        opacity: 0;
-    }
-}
 
 
 .home-page {
@@ -84,6 +40,8 @@
         animation: fadeIn 0.7s ease-in forwards;
         animation-delay: 0.1s;
         opacity: 0;
+
+        text-shadow: 0px 1px 0px #ddd, 1px 3px 0px #ddd, 2px 4px 0px #ddd, 3px 5px 0px #ddd, 4px 6px 0px #ddd;
     }
 
     .content>hr {
@@ -108,22 +66,6 @@
         position: absolute;
         left: calc(100% + 8px);
         display: inline-block;
-    }
-
-    .flip-text {
-        top: 0;
-        left: 0;
-        position: absolute;
-        display: inline-block;
-        transform-origin: bottom;
-    }
-
-    .flip-in {
-        animation: textIn 0.5s forwards;
-    }
-
-    .flip-out {
-        animation: textOut 0.5s forwards;
     }
 
     .content>a {
