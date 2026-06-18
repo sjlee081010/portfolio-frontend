@@ -1,22 +1,75 @@
-초간단 개인 홈페이지 구현 및 배포
-개인 홈페이지 게시판 기능 추가 계획서 (문서 기능 변경, 화면 레이아웃 변경 등)
-생활코딩 > WEB > WEB2 - Node.js 에서 로컬호스트로 파일입출력 방식의 게시판 기능 구현
-생활코딩 > DATABASE > MySQL 에서 로컬호스트로 DB 입출력 방식의 게시판 기능 구현
-개인 홈페이지 게시판 기능 구현 및 배포
-개인 홈페이지 공부한 내용 표시 기능 추가 계획서 (문서 기능 변경, 화면 레이아웃 변경 등)
-개인 홈페이지 공부한 내용 표시 기능 구현 및 배포
-개인 홈페이지 로그인 기능 추가 계획서 (문서 기능 변경, 화면 레이아웃 변경 등)
-개인 홈페이지 로그인 기능 구현 및 배포
-개인 홈페이지 외부 데이터 연동 기능 추가 계획서 (문서 기능 변경, 화면 레이아웃 변경 등)
-개인 홈페이지 외부 데이터 연동 기능 구현 및 배포
+# React + TypeScript + Vite
 
-Home (인트로) — 이름, 한 줄 소개, 핵심 키워드
-About — 자기소개, 학교/전공, 추구하는 개발 방향, 기술 스택 (언어, 프레임워크, 툴)
-Projects — 프로젝트 카드 (이름, 설명, 사용 기술, 링크)
-Experience — 현장실습, 수상경력, 활동 이력
-Contact — 이메일, GitHub, 링크 등
-Board - 게시판
-Study - 공부한 내용 기록
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-dark: #333
-light: #f9f9f9
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+
+Note: This will impact Vite dev & build performances.
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
